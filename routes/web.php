@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('search', 'PostController@index')->name('search.init');
+
+Route::group(['prefix' => 'ajax'], function () {
+    Route::get('post-all', 'Ajax\PostController@getPosts')->name('ajax.post.all');
+});
